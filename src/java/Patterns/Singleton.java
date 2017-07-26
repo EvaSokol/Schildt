@@ -5,4 +5,12 @@ package java.Patterns;
  */
 public class Singleton
 {
+  private Singleton instance = null;
+  private Singleton() {}
+  
+  public Singleton getInstance() {
+    if (instance == null)
+      return new Singleton();
+    else return instance;
+  }
 }
