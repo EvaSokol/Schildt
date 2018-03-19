@@ -44,7 +44,7 @@ public class Inversion2 extends Application {
 
 	}
 
-	private String revertor(String str, String separator){
+	public static String revertor(String str, String separator){
 		String[] strBuf = str.split(separator);
 
 		for (int x = 0; x <= (strBuf.length - 1); ++x) {
@@ -61,7 +61,7 @@ public class Inversion2 extends Application {
 //			}
 //			newstr += separator;
 //		}
-//		return newstr;
+//		return newstr.trim();
 
 	}
 
