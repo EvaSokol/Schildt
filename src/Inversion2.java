@@ -8,7 +8,7 @@ import javafx.event.*;
 
 public class Inversion2 extends Application {
 
-	private String separator = new String(" ");
+	private String separator = " ";
 
 	Label label1 = new Label("Electric Cloud");
 	TextField tf1 = new TextField("Electric Cloud");
@@ -30,26 +30,38 @@ public class Inversion2 extends Application {
 		EventHandler<ActionEvent> ehInverse = new EventHandler<ActionEvent>() {
 
 			public void handle(ActionEvent ae) {
-
 				label1.setText(null);
-				String str = new String(tf1.getText());
-				String[] strBuf = str.split(separator);
+				String str = tf1.getText();
 
-				for (int x = 0; x <= (strBuf.length - 1); ++x) {
-					strBuf[x] = new StringBuffer(strBuf[x]).reverse().toString();
-				}
-
-				str = String.join(separator, strBuf);
-				label1.setText(str);
-
+				label1.setText(revertor(str, separator));
 			}
-
 		};
 		
 		btnInverse.setOnAction(ehInverse);
 
 		root1.getChildren().addAll(tf1, btnInverse, label1);
 		stage1.show();
+
+	}
+
+	private String revertor(String str, String separator){
+		String[] strBuf = str.split(separator);
+
+		for (int x = 0; x <= (strBuf.length - 1); ++x) {
+			strBuf[x] = new StringBuffer(strBuf[x]).reverse().toString();
+		}
+		return String.join(separator, strBuf);
+
+//		String newstr = "";
+//		String[] z = str.split(separator);
+//		for (String littleStr : z){
+//			char[] barray = littleStr.toCharArray();
+//			for (int i = barray.length-1; i>=0; i--) {
+//				newstr = newstr +  barray[i];
+//			}
+//			newstr += separator;
+//		}
+//		return newstr;
 
 	}
 
